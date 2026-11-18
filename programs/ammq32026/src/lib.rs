@@ -9,7 +9,7 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("4XadfZBdH5iRQ9fVHrffKaxyAseU2j7V5BB3v1oxNru2");
+declare_id!("EVSt3PBkpkwRTnX3ij7CCF1Xf88fG3r6sM3YcErtXtkw");
 
 #[program]
 pub mod ammq32026 {
@@ -25,5 +25,13 @@ pub mod ammq32026 {
 
     pub fn deposit(ctx: Context<Deposit>, amount: u64, max_x: u64, max_y: u64) -> Result<()> {
         ctx.accounts.deposit(amount, max_x, max_y)
+    }
+
+    pub fn remove_liquidity(ctx: Context<RemoveLiquidity>, lp_amount: u64, min_x: u64, min_y: u64) -> Result<()>{
+        ctx.accounts.remove_liquidity(lp_amount, min_x, min_y)
+    }
+
+    pub fn swap(ctx: Context<Swap>, is_x: bool, amount_in: u64, min_out: u64 ) -> Result<()>{
+        ctx.accounts.swap(is_x, amount_in, min_out)
     }
 }

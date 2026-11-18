@@ -66,6 +66,7 @@ impl<'info> Initialize<'info> {
             locked: false,
             config_bump: bumps.config,
             lp_bump: bumps.mint_lp,
+            treasury: self.initializer.key(),
         });
 
         Ok(())
